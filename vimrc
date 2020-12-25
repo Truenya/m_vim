@@ -3,6 +3,10 @@ augroup myvimrc
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
+
 set path+=/home/nvidia/
 set exrc
 set secure
@@ -244,7 +248,7 @@ let c_no_curly_error=1
 " автокомплит через <Ctrl+Space>
 inoremap <C-space> <C-x><C-o>
 "сохранение конфига для гита
-:!cp ~/.vimrc ~/.vim/m_vim/vimrc
+:!cp ~/.vimrc ~/m_vim/vimrc
 "=====================================================
 " Languages support
 "=====================================================
