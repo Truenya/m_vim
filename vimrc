@@ -2,12 +2,40 @@ augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
+
 set path+=/home/nvidia/
 set exrc
 set secure
 "set pyx=3
 
  let g:clang_library_path='/usr/lib/llvm-8/lib/libclang.so.1'
+
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
 call plug#begin('~/.vim/bundle') "Начать искать плагины в этой директории
 "Тут будут описаны наши плагины""
@@ -56,7 +84,7 @@ Plug 'ervandew/supertab'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 set pyx=3
 
-
+Plug 'altercation/vim-colors-solarized'
 
 
 
@@ -77,7 +105,8 @@ Plug 'tpope/vim-surround'	   	" Parentheses, brackets, quotes, XML tags, and mor
 "Plug 'MarcWeber/vim-addon-mw-utils'	" dependencies #1
 "Plug 'tomtom/tlib_vim'		" dependencies #2
 "Plug 'honza/vim-snippets'		" snippets repo
-
+"comments
+Plug 'scrooloose/nerdcommenter'
 "---------------=== Languages support ===-------------
 " --- Python ---
 "Plug 'klen/python-mode'	        " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
@@ -87,7 +116,7 @@ Plug 'tpope/vim-surround'	   	" Parentheses, brackets, quotes, XML tags, and mor
 Plug 'majutsushi/tagbar'
 Plug 'xolox/vim-easytags'
 call plug#end() "Перестать это делать
-
+filetype plugin on
 filetype plugin indent on "Включает определение типа файла, загрузку...
 "... соответствующих ему плагинов и файлов отступов
 set encoding=utf-8 "Ставит кодировку UTF-8
@@ -96,9 +125,12 @@ set nocompatible "Отключает обратную совместимость
 
 syntax on
 colorscheme gruvbox
+"colorscheme solarized
 set bg=dark
+set background=dark
 set laststatus=2
 set noshowmode
+let g:solarized_termcolors=256
 autocmd vimenter * TagbarToggle
 "autocmd vimenter * NERDTree
 tab sball
@@ -207,11 +239,11 @@ let g:cpp_experimental_template_highlight = 1
 
 let g:cpp_concepts_highlight = 1
 
-
 let c_no_curly_error=1
 
 " автокомплит через <Ctrl+Space>
 inoremap <C-space> <C-x><C-o>
+"сохранение конфига для гита
 :!cp ~/.vimrc ~/.vim/m_vim/vimrc
 "=====================================================
 " Languages support
@@ -222,7 +254,7 @@ inoremap <C-space> <C-x><C-o>
 "\ formatoptions+=croq softtabstop=4 smartindent
 "\ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 "autocmd FileType pyrex setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,wit
-let g:mapleader=','
+let g:mapleader ='\'
 map <Leader> <Plug> (easymotion-prefix)
 :syn keyword Keyword Enumeration 
 "let g:jedi#popup_select_first = 0
