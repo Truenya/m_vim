@@ -1,4 +1,3 @@
-echo "Hello, world"
 augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
@@ -213,7 +212,7 @@ let c_no_curly_error=1
 
 " автокомплит через <Ctrl+Space>
 inoremap <C-space> <C-x><C-o>
-
+:!cp ~/.vimrc ~/.vim/m_vim/vimrc
 "=====================================================
 " Languages support
 "=====================================================
