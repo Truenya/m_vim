@@ -81,7 +81,7 @@ Plug 'ervandew/supertab'
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "for easytags plagin
-Plug 'universal-ctags/ctags'
+"Plug 'universal-ctags/ctags'
 "comments
 Plug 'scrooloose/nerdcommenter'
 "------------------=== Other ===----------------------
@@ -97,7 +97,7 @@ Plug 'honza/vim-snippets'		" snippets repo
 "справа вылезает окошко со структурой тэгов файла
 Plug 'majutsushi/tagbar'
 "Много вещей
-Plug 'xolox/vim-easytags'
+"Plug 'xolox/vim-easytags'
 call plug#end() "Перестать это делать
 
 filetype plugin on
@@ -146,7 +146,8 @@ augroup vimrc_autocmds
     autocmd FileType ruby,python,javascript,c,cpp set nowrap
 augroup END
 nmap <F8> :TagbarToggle<CR>
-map <F3> :NERDTreeToggle<C>
+map <F4> :A<CR>
+"map <F3> :NERDTreeToggle<C>
 " TaskList настройки
 map <F2> :TaskList<CR> 	   " отобразить список тасков на F2
 let g:cpp_class_scope_highlight = 1
