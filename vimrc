@@ -2,6 +2,28 @@ augroup myvimrc
     au!
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
+"New lines inherit the indentation of previous lines.
+set autoindent
+"When shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
+set shiftround
+set shiftwidth=4
+set ignorecase
+set smartcase
+"Don’t update screen during macro and script execution.
+set lazyredraw
+"Use an encoding that supports unicode
+set encoding=utf-8
+"Automatically re-read files if unmodified inside Vim.
+set autoread
+"Allow backspacing over indention, line breaks and insertion start.
+set backspace=indent,eol,start
+"Delete comment characters when joining lines.
+set formatoptions+=j
+
+
+
+
+
 
 set path+=/home/nvidia/
 set exrc
@@ -42,6 +64,9 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/vim-easy-align'
 Plug 'jiangmiao/auto-pairs'
+
+"Автопереход между c\h
+Plug 'vim-scripts/a.vim'
 
 
 Plug 'scrooloose/syntastic'
@@ -244,8 +269,10 @@ let c_no_curly_error=1
 " автокомплит через <Ctrl+Space>
 inoremap <C-space> <C-x><C-o>
 "сохранение конфига для гита
-:!cp ~/.vimrc ~/.vim/m_vim/vimrc
-"=====================================================
+if @% == "/home/nvidia/.vimrc"
+  silent :!cp ~/.vimrc ~/.vim/m_vim/vimrc
+endif
+  "=====================================================
 " Languages support
 "=====================================================
 " --- Python ---
