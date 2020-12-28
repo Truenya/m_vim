@@ -52,10 +52,10 @@ let g:NERDToggleCheckAllLines = 1
 
 call plug#begin('~/.vim/bundle') "Начать искать плагины в этой директории
 "Тут будут описаны плагины"
-"colorscheme
+"colorschemes
 Plug 'morhetz/gruvbox'
-"colorscheme
 Plug 'altercation/vim-colors-solarized'
+
 "легкое выравнивание
 Plug 'junegunn/vim-easy-align'
 "Завершение скобочек и прочего
@@ -174,6 +174,6 @@ set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:easytags_autorecurse = 1
-let g:easytags_syntax_keyword = 'always'
-let g:easytags_async = 1
+" let g:easytags_autorecurse = 0
+" let g:easytags_syntax_keyword = 'always'
+" let g:easytags_async = 0
