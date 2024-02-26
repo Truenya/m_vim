@@ -18,10 +18,10 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 
 -- disable arrows
-vim.keymap.set({ 'n', 'i' }, '<up>', '')
-vim.keymap.set({ 'n', 'i' }, '<down>', '')
-vim.keymap.set({ 'n', 'i' }, '<left>', '')
-vim.keymap.set({ 'n', 'i' }, '<right>', '')
+-- vim.keymap.set({ 'n', 'i' }, '<up>', '')
+-- vim.keymap.set({ 'n', 'i' }, '<down>', '')
+-- vim.keymap.set({ 'n', 'i' }, '<right>', '')
+-- vim.keymap.set({ 'n', 'i' }, '<left>', '')
 
 -- center screen on Ctrl+u, Ctrl+d moves
 -- vim.keymap.set('n', '<C-d>', '<C-d>zz')

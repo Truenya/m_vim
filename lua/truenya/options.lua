@@ -28,3 +28,8 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = '120'
 
 vim.g.mapleader = ' '
+
+vim.opt.clipboard = 'unnamedplus'
+vim.g.nvim_tree_disable_netrw = 0
+-- vim.builtin.nvimtree.setup.disable_netrw = false
+-- vim.builtin.nvimtree.setup.hijack_netrw = false

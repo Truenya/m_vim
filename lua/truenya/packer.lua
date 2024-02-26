@@ -5,12 +5,14 @@ return require('packer').startup(function(use)
   use {'ellisonleao/gruvbox.nvim'}
   vim.o.background = "dark" -- or "light" for light mode
   vim.cmd([[colorscheme gruvbox]])
+  vim.g.gruvbox_baby_transparent_mode = 1
 
   use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
   use('tpope/vim-fugitive')
   use('ray-x/lsp_signature.nvim')
   use('mbbill/undotree')
-  use('nvim-tree/nvim-tree.lua')
+  use('xiyaowong/transparent.nvim')
+  -- use('nvim-tree/nvim-tree.lua')
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -61,5 +63,22 @@ return require('packer').startup(function(use)
     after = "nvim-treesitter",
     requires = "nvim-treesitter/nvim-treesitter",
   })
+  -- Ai autocomplete
   use {'Exafunction/codeium.vim'}
+  -- nushell support
+  use{
+    'LhKipp/nvim-nu',
+    run = ':TSInstall nu',
+    requires = {
+      'jose-elias-alvarez/null-ls.nvim'
+    }
+  }
+  use {'ron-rs/ron.vim'}
+  use 'karb94/neoscroll.nvim'
+  use {
+    'prichrd/netrw.nvim',
+    reqires = {
+      'nvim-tree/nvim-web-devicons'
+    }
+  }
 end)
